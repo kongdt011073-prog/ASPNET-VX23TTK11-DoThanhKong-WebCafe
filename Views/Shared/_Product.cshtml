@@ -1,0 +1,26 @@
+﻿
+<div class="row mt-4">
+    @foreach (var item in Model)
+    {
+        <div class="item features-image col-6 col-md-4 col-lg-3">
+            <div class="item-wrapper">
+                <div class="item-img" style="width: 100%; height : auto;overflow: hidden;">
+                    <img src="~/images/@item.ImageUrl" alt="Coffee Shop" style="width: 100%; height: auto; display: block; margin: 0;">
+                </div>
+                <div class="item-content" style="margin-top: 5px; padding-top: 0;">
+                    <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Id" target="_self">
+                        <h6 class="item-subtitle display-7">
+                            <p>Cà Phê : @item.Name</p>
+                        </h6>
+                    </a>
+                    <p class="mbr-text display-7" style="margin: 5px 0;">Đơn Giá : @item.Price.ToString("C")</p>
+                </div>
+                <div class="mbr-section-btn item-footer mt-2 d-flex justify-content-center">
+                    <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pId="@item.Id" class="btn item-btn btn-primary display-4" target="_self">
+                        <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Mua Ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

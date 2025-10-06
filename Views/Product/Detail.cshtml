@@ -1,0 +1,22 @@
+﻿@model SCoffee.Models.Domain.Product
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h1 class="text-center text-primary fw-bold">Chi tiết sản phẩm</h1>
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center">
+                <img src="/images/@Model.ImageUrl" class="img-fluid rounded" style="max-width: 300px;" alt="@Model.Name">
+            </div>
+            <div class="col-md-7">
+                <h4 class="fw-bold">Sản phẩm: @Model.Name</h4>
+                <p class="text-muted">@Model.Detail</p>
+                <div class="mb-3">
+                    <span class="fs-4 text-danger">Giá: @Model.Price.ToString("c")</span>
+                </div>
+                <a class="btn btn-primary btn-lg" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pId="@Model.Id">
+                    <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

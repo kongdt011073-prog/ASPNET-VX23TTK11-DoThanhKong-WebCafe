@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SCoffee.Models.Domain.Product>
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary fw-bold">Danh sách sản phẩm</h2>
+        <div class="text-end mb-3">
+            <a asp-action="Add" class="btn btn-success"><i class="bi bi-plus-circle"></i> Thêm sản phẩm</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Mô tả</th>
+                        <th>Hình ảnh</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">@product.Name</td>
+                            <td class="align-middle">@product.Price.ToString("C")</td>
+                            <td class="align-middle">@product.Detail</td>
+                            <td class="align-middle">
+                                <img src="~/images/@product.ImageUrl" width="200" height="200" />
+                            </td>
+                            
+                            <td class="align-middle">
+                                <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Sửa</a>
+                                <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

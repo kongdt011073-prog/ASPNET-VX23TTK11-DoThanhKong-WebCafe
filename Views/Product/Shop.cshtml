@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SCoffee.Models.Domain.Product>
+
+<section data-bs-version="5.1" class="content2 cid-tsEZVFGbrL" id="content2-g">
+    <div class="container py-5">
+        <div class="mbr-section-head text-center mb-4">
+            <h5 class="mbr-section-subtitle mbr-fonts-style display-5 fw-bold text-primary">
+                Tất cả những vị cà phê tinh túy nhất đều ở đây 😋🤍
+            </h5>
+        </div>
+
+        <!-- Form tìm kiếm -->
+        <form asp-action="Search" method="get" class="d-flex justify-content-center mb-3">
+            <div class="input-group w-50">
+                <input type="text" name="keyword" class="form-control" placeholder="Nhập tên sản phẩm..." required />
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search"></i> 
+                </button>
+            </div>
+        </form>
+
+        <!-- Form lọc sản phẩm theo giá -->
+        <form asp-action="FilterByPrice" method="get" class="d-flex justify-content-center mb-4">
+            <div class="input-group w-50">
+                <input type="number" name="minPrice" class="form-control" placeholder="Giá tối thiểu" step="0.01" required />
+                <input type="number" name="maxPrice" class="form-control" placeholder="Giá tối đa" step="0.01" required />
+                <button type="submit" class="btn btn-warning">
+                    <i class="bi bi-filter"></i> Lọc
+                </button>
+            </div>
+        </form>
+
+        <!-- Hiển thị danh sách sản phẩm -->
+        <div class="row">
+            <partial name="_Product"></partial>
+        </div>
+    </div>
+</section>
